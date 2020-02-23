@@ -55,7 +55,7 @@ def emit_resx(
     args = _make_runner_arglist(dotnet, src, result)
 
     dotnet.actions.run(
-        inputs = [copied_source],
+        inputs = [copied_source, dotnet.resgen],
         outputs = [result],
         executable = dotnet.runner,
         arguments = [dotnet.resgen.path, copied_source.path],
